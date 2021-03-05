@@ -9,14 +9,18 @@ import Foundation
 
 public struct Observation: Hashable {
     
-    let uuid = UUID()
+    let uuid: UUID
     let queue: DispatchQueue
     
+    public init(uuid: UUID = UUID(), queue: DispatchQueue = .communicator) {
+        self.uuid = uuid
+        self.queue = queue
+    }
 }
 
 public struct Observations<H> {
     
-    var store: [Observation: H] = [:]
+    public var store: [Observation: H] = [:]
     
 }
 
